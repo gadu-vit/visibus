@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Dimensions, ActivityIndicator, Platform } from 'react-native';
+import { View, Text, ActivityIndicator, Platform } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
+import GlobalStyles from '../styles/GlobalStyles';
 
 export default function MapSection() {
   const [location, setLocation] = useState<Location.LocationObject | null>(null);
@@ -27,41 +29,37 @@ export default function MapSection() {
 
   if (isWeb) {
     return (
-      <View style={[styles.mapContainer, styles.webWarning]}>
-        <Text style={styles.warningText}>Mapa indisponível no modo Web</Text>
+      <View style={[GlobalStyles.mapContainer, GlobalStyles.webWarning]}>
+        <Text style={GlobalStyles.warningText}>Mapa indisponível no modo Web</Text>
       </View>
     );
   }
 
-  if (loading) {
+  if (loading || !location) {
     return (
-      <View style={styles.mapContainer}>
+      <View style={GlobalStyles.mapContainer}>
         <ActivityIndicator size="large" color="#339fff" />
         <Text style={{ marginTop: 8, color: '#333' }}>Carregando mapa...</Text>
       </View>
     );
   }
 
-  // Importa os módulos somente quando não for web
-  const MapView = require('react-native-maps').default;
-  const Marker = require('react-native-maps').Marker;
-
   return (
-    <View style={styles.mapWrapper}>
+    <View style={GlobalStyles.mapWrapper}>
       <MapView
-        style={styles.map}
+        style={GlobalStyles.map}
         showsUserLocation
         initialRegion={{
-          latitude: location?.coords.latitude || -23.55052,
-          longitude: location?.coords.longitude || -46.633308,
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
           latitudeDelta: 0.01,
           longitudeDelta: 0.01,
         }}
       >
         <Marker
           coordinate={{
-            latitude: location?.coords.latitude || -23.55052,
-            longitude: location?.coords.longitude || -46.633308,
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
           }}
           title="Você está aqui"
         />
@@ -69,34 +67,3 @@ export default function MapSection() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  mapWrapper: {
-    marginHorizontal: 16,
-    marginTop: 16,
-    borderRadius: 12,
-    overflow: 'hidden',
-    height: Dimensions.get('window').height * 0.35,
-    backgroundColor: '#eee',
-  },
-  map: {
-    flex: 1,
-  },
-  mapContainer: {
-    height: Dimensions.get('window').height * 0.35,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  webWarning: {
-    marginHorizontal: 16,
-    marginTop: 16,
-    borderRadius: 12,
-    backgroundColor: '#f8f8f8',
-    padding: 20,
-  },
-  warningText: {
-    fontSize: 16,
-    color: '#999',
-    textAlign: 'center',
-  },
-});

@@ -17,10 +17,9 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/logo.png",
+        "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff",
         "permissions": [
-          "ACCESS_FINE_LOCATION",
           "ACCESS_FINE_LOCATION"
         ]
       },
@@ -55,9 +54,7 @@
         "projectId": "3e1c8590-811a-4132-9fcf-1a6ec0a75d14"
       }
     },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
+    "runtimeVersion": "1.0.0",
     "updates": {
       "url": "https://u.expo.dev/3e1c8590-811a-4132-9fcf-1a6ec0a75d14"
     }

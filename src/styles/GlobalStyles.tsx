@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 const GlobalStyles = StyleSheet.create({
   // Containers e estrutura base
@@ -144,6 +144,34 @@ const GlobalStyles = StyleSheet.create({
     color: '#000',
     fontFamily: 'HankenGrotesk_700Bold',
   },
+  mapWrapper: {
+      marginHorizontal: 16,
+      marginTop: 16,
+      borderRadius: 12,
+      overflow: 'hidden',
+      height: Dimensions.get('window').height * 0.35,
+      backgroundColor: '#eee',
+    },
+    map: {
+      flex: 1,
+    },
+    mapContainer: {
+      height: Dimensions.get('window').height * 0.35,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    webWarning: {
+      marginHorizontal: 16,
+      marginTop: 16,
+      borderRadius: 12,
+      backgroundColor: '#f8f8f8',
+      padding: 20,
+    },
+    warningText: {
+      fontSize: 16,
+      color: '#999',
+      textAlign: 'center',
+    },
 });
 
 export default GlobalStyles;
