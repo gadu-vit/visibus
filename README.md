@@ -37,7 +37,7 @@ Ainda não há integração com APIs externas nem autenticação real. O foco at
 ## 🚀 Como executar
 
 ```bash
-git clone https://github.com/seu-usuario/visibus.git
+git clone https://github.com/gadu-vit/visibus.git
 cd visibus
 npm install
 npx expo start
