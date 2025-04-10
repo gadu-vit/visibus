@@ -45,14 +45,6 @@ npx expo start
 
 ---
 
-## 🛆 Builds com EAS (para gerar APK)
-
-```bash
-eas build --platform android --profile preview
-```
-
----
-
 ## 👩‍💼 Desenvolvido por
 
 Projeto acadêmico em desenvolvimento por **Ana Vitória Silva**  
