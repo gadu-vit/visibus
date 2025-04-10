@@ -145,33 +145,34 @@ const GlobalStyles = StyleSheet.create({
     fontFamily: 'HankenGrotesk_700Bold',
   },
   mapWrapper: {
-      marginHorizontal: 16,
-      marginTop: 16,
-      borderRadius: 12,
-      overflow: 'hidden',
-      height: Dimensions.get('window').height * 0.35,
-      backgroundColor: '#eee',
-    },
-    map: {
-      flex: 1,
-    },
-    mapContainer: {
-      height: Dimensions.get('window').height * 0.35,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    webWarning: {
-      marginHorizontal: 16,
-      marginTop: 16,
-      borderRadius: 12,
-      backgroundColor: '#f8f8f8',
-      padding: 20,
-    },
-    warningText: {
-      fontSize: 16,
-      color: '#999',
-      textAlign: 'center',
-    },
+    marginHorizontal: 16,
+    marginTop: 16,
+    borderRadius: 12,
+    overflow: 'hidden',
+    height: Dimensions.get('window').height * 0.35,
+    backgroundColor: '#eee',
+  },
+  map: {
+    flex: 1,
+  },
+  mapContainer: {
+    height: Dimensions.get('window').height * 0.35,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 16,
+    marginTop: 16,
+    padding: 20,
+    borderRadius: 12,
+    backgroundColor: '#f0f0f0',
+  },
+  webWarning: {
+    backgroundColor: '#f8f8f8',
+  },
+  warningText: {
+    fontSize: 16,
+    color: '#777',
+    textAlign: 'center',
+  },
 });
 
 export default GlobalStyles;
